@@ -1,0 +1,60 @@
+---
+- alias: Login Failure
+  description: ''
+  trigger:
+  - platform:  state
+    entity_id: persistent_notification.http_login
+  condition:
+  - condition:      template
+    value_template: '{{ trigger.to_state.state != ''None'' }}'
+  action:
+  - service: notify.discord_alerts_system
+    data_template:
+      message: >
+        A failed login attempt has occurred from
+        `{{ states.persistent_notification.http_login.attributes.message.split("from")[1] | replace(' ', '') }}`
+        <@{{ states('input_text.discord_user_id') }}>
+
+- alias: System Error Occurred
+  trigger:
+  - platform:   event
+    event_type: system_log_event
+    event_data:
+      level: ERROR
+  action:
+  - service: notify.discord_alerts_system_debug
+    data_template:
+      message: |
+        The following system error has occurred:
+        ```
+        {{ trigger.event.data.message }}
+        ```
+
+- alias: System Update Available
+  trigger:
+  - platform:  state
+    entity_id: binary_sensor.updater
+    from:      'off'
+    to:        'on'
+  action:
+  - service: notify.discord_alerts_system
+    data_template:
+      message: A system update is available <@{{ states('input_text.discord_user_id') }}>
+
+- alias: Home Assistant Startup Notification
+  trigger:
+  - platform: homeassistant
+    event:    start
+  action:
+  - service: notify.discord_alerts_system
+    data_template:
+      message: Home Assistant has been restarted <@{{ states('input_text.discord_user_id') }}>
+
+- alias: Home Assistant Shutdown Notification
+  trigger:
+  - platform: homeassistant
+    event:    shutdown
+  action:
+  - service: notify.discord_alerts_system
+    data_template:
+      message: Home Assistant is shutting down <@{{ states('input_text.discord_user_id') }}>

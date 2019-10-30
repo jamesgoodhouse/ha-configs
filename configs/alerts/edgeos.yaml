@@ -1,0 +1,11 @@
+---
+unknown_network_devices:
+  name:            Unknown Network Devices
+  message:         There are unknown devices connected to the network <@{{ states('input_text.discord_user_id') }}>
+  entity_id:       binary_sensor.edgeos_unknown_devices
+  can_acknowledge: true
+  state:           'on'
+  repeat:
+  - 120
+  notifiers:
+  - discord_alerts_system

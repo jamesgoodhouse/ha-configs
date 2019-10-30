@@ -1,0 +1,16 @@
+---
+- name:      Home
+  latitude:  !secret zone_home_latitude
+  longitude: !secret zone_home_longitude
+  radius:    20
+  icon:      mdi:cat
+- name:      Work
+  latitude:  !secret zone_work_latitude
+  longitude: !secret zone_work_longitude
+  radius:    75
+  icon:      mdi:iframe
+- name:      Angie's
+  latitude:  !secret zone_angie_latitude
+  longitude: !secret zone_angie_longitude
+  radius:    25
+  icon:      mdi:heart

@@ -1,0 +1,11 @@
+---
+edgeos_unknown_devices:
+  friendly_name:  'Unknown Devices'
+  entity_id:      sensor.edgeos_unknown_devices
+  device_class:   problem
+  value_template: >
+    {% if states.sensor.edgeos_unknown_devices %}
+      {{ states('sensor.edgeos_unknown_devices') | float > 0 }}
+    {% else %}
+      False
+    {% endif %}

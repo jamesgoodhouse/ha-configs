@@ -1,0 +1,7 @@
+---
+host:                 !secret edge_os_host
+ssl:                  true
+username:             !secret edge_os_username
+password:             !secret edge_os_password
+monitored_interfaces: [eth0]
+unit:                 M

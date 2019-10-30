@@ -1,0 +1,5 @@
+---
+binary_sensor.front_door:
+  device_class: door
+binary_sensor.garage_door:
+  device_class: garage_door
