@@ -4,7 +4,6 @@ history:
 logbook:
 #map:
 mobile_app:
-person:
 sun:
 system_health:
 zeroconf:
@@ -22,6 +21,7 @@ homeassistant:  !include configs/home_assistant.yaml
 input_text:     !include configs/input_texts.yaml
 logger:         !include configs/logger.yaml
 notify:         !include configs/notifiers.yaml
+person:         !include configs/people.yaml
 script:         !include configs/scripts.yaml
 sensor:         !include configs/sensors.yaml
 system_log:     !include configs/system_log.yaml
