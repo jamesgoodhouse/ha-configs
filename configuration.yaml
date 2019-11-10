@@ -7,7 +7,6 @@ mobile_app:
 person:
 sun:
 system_health:
-updater:
 zeroconf:
 
 alert:          !include_dir_merge_named configs/alerts/
@@ -26,6 +25,7 @@ notify:         !include configs/notifiers.yaml
 script:         !include configs/scripts.yaml
 sensor:         !include configs/sensors.yaml
 system_log:     !include configs/system_log.yaml
+updater:        !include configs/updater.yaml
 weather:        !include configs/weather.yaml
 zone:           !include configs/zones.yaml
 zwave:          !include configs/zwave.yaml
