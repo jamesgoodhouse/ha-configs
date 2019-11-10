@@ -1,0 +1,5 @@
+---
+- name: James
+  id: james
+  device_trackers:
+  - device_tracker.james_***REMOVED***
