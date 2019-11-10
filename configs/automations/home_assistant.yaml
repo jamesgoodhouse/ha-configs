@@ -1,5 +1,5 @@
 ---
-- alias: Login Failure
+- alias: Login Failure Notification
   description: ''
   trigger:
   - platform:  state
@@ -15,7 +15,7 @@
         `{{ states.persistent_notification.http_login.attributes.message.split("from")[1] | replace(' ', '') }}`
         <@{{ states('input_text.discord_user_id') }}>
 
-- alias: System Error Occurred
+- alias: System Error Occurred Notification
   trigger:
   - platform:   event
     event_type: system_log_event
@@ -30,7 +30,7 @@
         {{ trigger.event.data.message }}
         ```
 
-- alias: System Update Available
+- alias: Home Assistant Update Available Notification
   trigger:
   - platform:  state
     entity_id: binary_sensor.updater
@@ -39,7 +39,7 @@
   action:
   - service: notify.discord_alerts_system
     data_template:
-      message: A system update is available <@{{ states('input_text.discord_user_id') }}>
+      message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available <@{{ states('input_text.discord_user_id') }}>"
 
 - alias: Home Assistant Startup Notification
   trigger:
