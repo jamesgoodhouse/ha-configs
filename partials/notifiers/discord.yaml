@@ -2,6 +2,7 @@
 - platform: discord
   name: Discord
   token: !secret discord_bot_token
+
 - platform: group
   name: discord_alerts_home
   services:

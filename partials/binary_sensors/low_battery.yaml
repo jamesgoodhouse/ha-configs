@@ -9,6 +9,7 @@ front_door_battery_low:
     {% else %}
       False
     {% endif %}
+
 garage_door_battery_low:
   friendly_name: Garage Door Sensor Battery Low
   entity_id: sensor.garage_door_battery_level

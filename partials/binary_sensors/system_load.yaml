@@ -9,6 +9,7 @@ cpu_usage_high:
     {% else %}
       False
     {% endif %}
+
 disk_usage_high:
   friendly_name: Disk Usage High
   entity_id: sensor.disk_use_percent
@@ -19,6 +20,7 @@ disk_usage_high:
     {% else %}
       False
     {% endif %}
+
 memory_usage_high:
   friendly_name: Memory Usage High
   entity_id: sensor.memory_use_percent
