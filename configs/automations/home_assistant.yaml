@@ -41,7 +41,7 @@
     data_template:
       message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available <@{{ states('input_text.discord_user_id') }}>"
 
-- alias: Home Assistant Startup Notification
+- alias: Home Assistant Startup
   trigger:
   - platform: homeassistant
     event:    start
@@ -49,8 +49,11 @@
   - service: notify.discord_alerts_system
     data_template:
       message: Home Assistant has been restarted <@{{ states('input_text.discord_user_id') }}>
+  - service: frontend.set_theme
+    data:
+      name: slate
 
-- alias: Home Assistant Shutdown Notification
+- alias: Home Assistant Shutdown
   trigger:
   - platform: homeassistant
     event:    shutdown
