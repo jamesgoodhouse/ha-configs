@@ -4,7 +4,7 @@ automation: !include_dir_merge_list ./partials/automations/
 binary_sensor:
 - platform: template
   sensors: !include_dir_merge_named ./partials/binary_sensors/
-config:
+config: null
 device_tracker:
 - platform: bluetooth_tracker
   request_rssi: true
@@ -19,7 +19,7 @@ hacs:
   sidepanel_icon: mdi:account-group
   theme: true
   token: !secret github_token_hacs
-history:
+history: null
 homeassistant:
   customize: !include ./partials/customize.yaml
   elevation: 43
@@ -38,10 +38,10 @@ input_text:
     name: Discord User ID
     initial: !secret discord_user_id
     icon: mdi:discord
-logbook:
+logbook: null
 logger:
   default: info
-mobile_app:
+mobile_app: null
 notify: !include_dir_merge_list ./partials/notifiers/
 person:
 - name: James
@@ -50,8 +50,8 @@ person:
   device_trackers:
   - device_tracker.james_***REMOVED***
 sensor: !include ./partials/sensors.yaml
-sun:
-system_health:
+sun: null
+system_health: null
 system_log:
   fire_event: true
 updater:
@@ -62,7 +62,7 @@ weather:
   api_key: !secret darksky_api_key
   mode: daily
   name: Home
-zeroconf:
+zeroconf: null
 zwave:
   network_key: !secret zwave_network_key
   usb_path: /dev/ttyUSB0
