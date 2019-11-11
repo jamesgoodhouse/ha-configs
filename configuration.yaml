@@ -37,6 +37,7 @@ input_text:
   discord_user_id:
     name: Discord User ID
     initial: !secret discord_user_id
+    icon: mdi:discord
 logbook:
 logger:
   default: info
