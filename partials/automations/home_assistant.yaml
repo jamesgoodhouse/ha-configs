@@ -42,6 +42,9 @@
     from: "off"
     to: "on"
   action:
+  - service: notify.telegram
+    data:
+      message: Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available
   - service: notify.discord_alerts_system
     data_template:
       message: >

@@ -12,6 +12,7 @@ cpu_usage_high:
   - 1
   - 5
   notifiers:
+  - telegram
   - discord_alerts_system
 
 disk_usage_high:
@@ -25,6 +26,7 @@ disk_usage_high:
   repeat:
   - 60
   notifiers:
+  - telegram
   - discord_alerts_system
 
 memory_usage_high:
@@ -40,4 +42,5 @@ memory_usage_high:
   - 1
   - 5
   notifiers:
+  - telegram
   - discord_alerts_system
