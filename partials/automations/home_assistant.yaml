@@ -7,6 +7,12 @@
   - condition: template
     value_template: '{{ trigger.to_state.state != ''None'' }}'
   action:
+  - service: notify.telegram
+    data:
+      title: '🔒 *Failed Login* 🔒'
+      message: >
+        A failed login attempt has occurred from
+        `{{ states.persistent_notification.http_login.attributes.message.split("from")[1] | replace(' ', '') }}`
   - service: notify.discord_alerts_system
     data_template:
       message: >
