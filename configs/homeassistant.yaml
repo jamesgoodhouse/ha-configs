@@ -1,9 +1,9 @@
 ---
-customize:        !include customize.yaml
-elevation:        43
-latitude:         !secret zone_home_latitude
-longitude:        !secret zone_home_longitude
-name:             Home
+customize: !include customize.yaml
+elevation: 43
+latitude: !secret zone_home_latitude
+longitude: !secret zone_home_longitude
+name: Home
 temperature_unit: F
-time_zone:        America/Los_Angeles
-unit_system:      imperial
+time_zone: America/Los_Angeles
+unit_system: imperial

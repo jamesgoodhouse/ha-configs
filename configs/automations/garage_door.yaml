@@ -1,62 +1,48 @@
 ---
 - alias: Garage Door Opened
-  description: ''
+  description: Garage door has been opened
   trigger:
-  - platform:  state
+  - platform: state
     entity_id: binary_sensor.garage_door
-    from:      'off'
-    to:        'on'
+    from: "off"
+    to: "on"
   action:
-  # only fire if after 30 seconds i'm still `not_home`
-  - delay: 00:00:30
+  - delay: "00:00:30" # only fire if after 30 seconds i'm still `not_home`
   - condition: state
     entity_id: person.james
-    state:     not_home
+    state: not_home
   - service: notify.discord_alerts_home
     data:
-      message: Your garage door has been opened <@{{ states('input_text.discord_user_id') }}>
-
-- alias: Garage Door Closed
-  description: ''
+      message: >
+        Your garage door has been opened
+        <@{{ states('input_text.discord_user_id') }}>
+- alias: Garage Door Left Opened
+  description: Garage door has been left opened
   trigger:
-  - platform:  state
-    entity_id: binary_sensor.garage_door
-    from:      'on'
-    to:        'off'
+  - platform: state
+    entity_id: person.james
+    from: home
+    to: not_home
   condition:
   - condition: state
-    entity_id: person.james
-    state:     not_home
+    entity_id: binary_sensor.garage_door
+    state: "on"
   action:
   - service: notify.discord_alerts_home
     data:
-      message: Your garage door is now closed <@{{ states('input_text.discord_user_id') }}>
-
+      message: >
+        You left your garage door open
+        <@{{ states('input_text.discord_user_id') }}>
 - alias: Garage Door Sensor Body Opened
   description: Garage door sensor body has been opened up
   trigger:
-  - platform:  state
+  - platform: state
     entity_id: sensor.garage_door_tamper_alarm
-    from:      '0'
-    to:        '3'
-  condition: []
+    from: "0"
+    to: "3"
   action:
   - service: notify.discord_alerts_home
     data:
-      message: The garage door sensor's body has been opened <@{{ states('input_text.discord_user_id') }}>
-
-- alias: Garage Door Left Opened
-  description: ''
-  trigger:
-  - platform:  state
-    entity_id: person.james
-    from:      'home'
-    to:        'not_home'
-  condition:
-  - condition: state
-    entity_id: binary_sensor.garage_door
-    state:     'on'
-  action:
-  - service: notify.discord_alerts_home
-    data:
-      message: You left your garage door open <@{{ states('input_text.discord_user_id') }}>
+      message: >
+        The garage door sensor's body has been opened
+        <@{{ states('input_text.discord_user_id') }}>

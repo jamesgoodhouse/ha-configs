@@ -1,4 +1,4 @@
 ---
-server_port:     8443
+server_port: 8443
 ssl_certificate: /config/certificate.pem
-ssl_key:         /config/privkey.pem
+ssl_key: /config/privkey.pem
