@@ -17,6 +17,7 @@ garage_door_open:
   - 20
   notifiers:
   - discord_alerts_home
+
 garage_door_sensor_battery_low:
   name: Garage Door Sensor Battery Low
   message: >
