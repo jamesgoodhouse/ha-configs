@@ -1,25 +1,30 @@
 ---
 front_door_open:
-  name:            Front Door Open
-  message:         Your front door is open <@{{ states('input_text.discord_user_id') }}>
-  done_message:    Your front door is now closed <@{{ states('input_text.discord_user_id') }}>
-  entity_id:       binary_sensor.front_door
+  name: Front Door Open
+  message: >
+    Your front door is open
+    <@{{ states('input_text.discord_user_id') }}>
+  done_message: >
+    Your front door is now closed
+    <@{{ states('input_text.discord_user_id') }}>
+  entity_id: binary_sensor.front_door
   can_acknowledge: true
-  state:           'on'
-  skip_first:      true
+  state: "on"
+  skip_first: true
   repeat:
   - 1
   - 5
   - 10
   notifiers:
   - discord_alerts_home
-
 front_door_sensor_battery_low:
-  name:            Front Door Sensor Battery Low
-  message:         The front door sensor's battery is low <@{{ states('input_text.discord_user_id') }}>
-  entity_id:       binary_sensor.front_door_battery_low
+  name: Front Door Sensor Battery Low
+  message: >
+    The front door sensor's battery is low
+    <@{{ states('input_text.discord_user_id') }}>
+  entity_id: binary_sensor.front_door_battery_low
   can_acknowledge: true
-  state:           'on'
+  state: "on"
   repeat:
   - 10080 # 7 days
   -  4320 # 3 days

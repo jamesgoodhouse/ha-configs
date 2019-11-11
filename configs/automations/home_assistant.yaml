@@ -1,6 +1,5 @@
 ---
 - alias: Login Failure
-  description: ''
   trigger:
   - platform: state
     entity_id: persistent_notification.http_login
@@ -14,10 +13,9 @@
         A failed login attempt has occurred from
         `{{ states.persistent_notification.http_login.attributes.message.split("from")[1] | replace(' ', '') }}`
         <@{{ states('input_text.discord_user_id') }}>
-
 - alias: System Error Occurred Notification
   trigger:
-  - platform:   event
+  - platform: event
     event_type: system_log_event
     event_data:
       level: ERROR
@@ -29,39 +27,38 @@
         ```
         {{ trigger.event.data.message }}
         ```
-
 - alias: Home Assistant Update Available Notification
   trigger:
-  - platform:  state
+  - platform: state
     entity_id: binary_sensor.updater
-    from:      'off'
-    to:        'on'
+    from: "off"
+    to: "on"
   action:
   - service: notify.discord_alerts_system
     data_template:
-      message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available <@{{ states('input_text.discord_user_id') }}>"
-
+      message: >
+        Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available
+        <@{{ states('input_text.discord_user_id') }}>
 - alias: Home Assistant Startup
   trigger:
   - platform: homeassistant
-    event:    start
+    event: start
   action:
-  - service: notify.discord_alerts_system
-    data_template:
-      message: Home Assistant has been restarted <@{{ states('input_text.discord_user_id') }}>
   - service: frontend.set_theme
     data:
       name: slate
-
+  - service: notify.discord_alerts_system
+    data_template:
+      message: >
+        Home Assistant has been restarted
+        <@{{ states('input_text.discord_user_id') }}>
 - alias: Home Assistant Shutdown
   trigger:
   - platform: homeassistant
-    event:    shutdown
+    event: shutdown
   action:
   - service: notify.discord_alerts_system
     data_template:
-      message: Home Assistant is shutting down <@{{ states('input_text.discord_user_id') }}>
-
-
-
-
+      message: >
+        Home Assistant is shutting down
+        <@{{ states('input_text.discord_user_id') }}>

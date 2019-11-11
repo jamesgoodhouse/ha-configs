@@ -13,24 +13,9 @@
     state: not_home
   - service: notify.discord_alerts_home
     data:
-      message: |
+      message: >
         Your front door has been opened
         <@{{ states('input_text.discord_user_id') }}>
-
-- alias: Front Door Sensor Body Opened
-  description: Front door sensor body has been opened up
-  trigger:
-  - platform: state
-    entity_id: sensor.front_door_tamper_alarm
-    from: "0"
-    to: "3"
-  action:
-  - service: notify.discord_alerts_home
-    data:
-      message: |
-        The front door sensor's body has been opened
-        <@{{ states('input_text.discord_user_id') }}>
-
 - alias: Front Door Left Opened
   description: Front door have been left opened
   trigger:
@@ -45,6 +30,19 @@
   action:
   - service: notify.discord_alerts_home
     data:
-      message: |
+      message: >
         You left your front door open
+        <@{{ states('input_text.discord_user_id') }}>
+- alias: Front Door Sensor Body Opened
+  description: Front door sensor body has been opened up
+  trigger:
+  - platform: state
+    entity_id: sensor.front_door_tamper_alarm
+    from: "0"
+    to: "3"
+  action:
+  - service: notify.discord_alerts_home
+    data:
+      message: >
+        The front door sensor's body has been opened
         <@{{ states('input_text.discord_user_id') }}>

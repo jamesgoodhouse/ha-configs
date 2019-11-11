@@ -1,37 +1,41 @@
 ---
-memory_usage_high:
-  name:            Memory Usage High
-  message:         The system's memory usage is high <@{{ states('input_text.discord_user_id') }}>
-  entity_id:       binary_sensor.memory_usage_high
-  can_acknowledge: true
-  state:           'on'
-  skip_first:      true
-  repeat:
-  - 1
-  - 5
-  notifiers:
-  - discord_alerts_system
-
 cpu_usage_high:
-  name:            CPU Usage High
-  message:         The system's CPU usage is high <@{{ states('input_text.discord_user_id') }}>
-  entity_id:       binary_sensor.cpu_usage_high
+  name: CPU Usage High
+  message: >
+    The system's CPU usage is high
+    <@{{ states('input_text.discord_user_id') }}>
+  entity_id: binary_sensor.cpu_usage_high
   can_acknowledge: true
-  state:           'on'
-  skip_first:      true
+  state: "on"
+  skip_first: true
   repeat:
   - 1
   - 5
   notifiers:
   - discord_alerts_system
-
 disk_usage_high:
-  name:            Disk Usage High
-  message:         The system's disk usage is high <@{{ states('input_text.discord_user_id') }}>
-  entity_id:       binary_sensor.disk_usage_high
+  name: Disk Usage High
+  message: >
+    The system's disk usage is high
+    <@{{ states('input_text.discord_user_id') }}>
+  entity_id: binary_sensor.disk_usage_high
   can_acknowledge: true
-  state:           'on'
+  state: "on"
   repeat:
   - 60
+  notifiers:
+  - discord_alerts_system
+memory_usage_high:
+  name: Memory Usage High
+  message: >
+    The system's memory usage is high
+    <@{{ states('input_text.discord_user_id') }}>
+  entity_id: binary_sensor.memory_usage_high
+  can_acknowledge: true
+  state: "on"
+  skip_first: true
+  repeat:
+  - 1
+  - 5
   notifiers:
   - discord_alerts_system

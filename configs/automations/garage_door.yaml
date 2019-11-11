@@ -13,24 +13,9 @@
     state: not_home
   - service: notify.discord_alerts_home
     data:
-      message: |
+      message: >
         Your garage door has been opened
         <@{{ states('input_text.discord_user_id') }}>
-
-- alias: Garage Door Sensor Body Opened
-  description: Garage door sensor body has been opened up
-  trigger:
-  - platform: state
-    entity_id: sensor.garage_door_tamper_alarm
-    from: "0"
-    to: "3"
-  action:
-  - service: notify.discord_alerts_home
-    data:
-      message: |
-        The garage door sensor's body has been opened
-        <@{{ states('input_text.discord_user_id') }}>
-
 - alias: Garage Door Left Opened
   description: Garage door has been left opened
   trigger:
@@ -45,6 +30,19 @@
   action:
   - service: notify.discord_alerts_home
     data:
-      message: |
+      message: >
         You left your garage door open
+        <@{{ states('input_text.discord_user_id') }}>
+- alias: Garage Door Sensor Body Opened
+  description: Garage door sensor body has been opened up
+  trigger:
+  - platform: state
+    entity_id: sensor.garage_door_tamper_alarm
+    from: "0"
+    to: "3"
+  action:
+  - service: notify.discord_alerts_home
+    data:
+      message: >
+        The garage door sensor's body has been opened
         <@{{ states('input_text.discord_user_id') }}>
