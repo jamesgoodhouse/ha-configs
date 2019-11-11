@@ -56,6 +56,9 @@
   - service: frontend.set_theme
     data:
       name: slate
+  - service: notify.telegram
+    data:
+      message: Home Assistant has been restarted
   - service: notify.discord_alerts_system
     data_template:
       message: >
@@ -67,6 +70,9 @@
   - platform: homeassistant
     event: shutdown
   action:
+  - service: notify.telegram
+    data:
+      message: Home Assistant is shutting down
   - service: notify.discord_alerts_system
     data_template:
       message: >
