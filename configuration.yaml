@@ -54,6 +54,11 @@ sun: null
 system_health: null
 system_log:
   fire_event: true
+telegram_bot:
+- platform: polling
+  api_key: !secret telegram_bot_token
+  allowed_chat_ids:
+  - !secret telegram_chat_id
 updater:
   include_used_components: true
   reporting: true
