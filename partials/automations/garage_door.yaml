@@ -7,7 +7,7 @@
     from: "off"
     to: "on"
   action:
-  - delay: "00:00:30" # only fire if after 30 seconds i'm still `not_home`
+  - delay: "00:00:30"
   - condition: state
     entity_id: person.james
     state: not_home
@@ -16,6 +16,7 @@
       message: >
         Your garage door has been opened
         <@{{ states('input_text.discord_user_id') }}>
+
 - alias: Garage Door Left Opened
   description: Garage door has been left opened
   trigger:
@@ -33,6 +34,7 @@
       message: >
         You left your garage door open
         <@{{ states('input_text.discord_user_id') }}>
+
 - alias: Garage Door Sensor Body Opened
   description: Garage door sensor body has been opened up
   trigger:

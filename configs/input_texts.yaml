@@ -1,4 +1,0 @@
----
-discord_user_id:
-  name: Discord User ID
-  initial: !secret discord_user_id

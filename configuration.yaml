@@ -1,31 +1,67 @@
 ---
+alert: !include_dir_merge_named ./partials/alerts/
+automation: !include_dir_merge_list ./partials/automations/
+binary_sensor:
+- platform: template
+  sensors: !include_dir_merge_named ./partials/binary_sensors/
 config:
+device_tracker:
+- platform: bluetooth_tracker
+  request_rssi: true
+  new_device_defaults:
+    track_new_devices: false
+duckdns:
+  access_token: !secret duck_dns_token
+  domain: !secret duck_dns_domain
+frontend:
+  themes: !include_dir_merge_named ./themes/
+hacs:
+  sidepanel_icon: mdi:account-group
+  theme: true
+  token: !secret github_token_hacs
 history:
+homeassistant:
+  customize: !include ./partials/customize.yaml
+  elevation: 43
+  latitude: !secret zone_home_latitude
+  longitude: !secret zone_home_longitude
+  name: Home
+  temperature_unit: F
+  time_zone: America/Los_Angeles
+  unit_system: imperial
+http:
+  server_port: 8443
+  ssl_certificate: /config/certificate.pem
+  ssl_key: /config/privkey.pem
+input_text:
+  discord_user_id:
+    name: Discord User ID
+    initial: !secret discord_user_id
 logbook:
-#map:
+logger:
+  default: info
 mobile_app:
+notify: !include_dir_merge_list ./partials/notifiers/
+person:
+- name: James
+  id: james
+  user_id: !secret user_id_james
+  device_trackers:
+  - device_tracker.james_***REMOVED***
+sensor: !include ./partials/sensors.yaml
 sun:
 system_health:
+system_log:
+  fire_event: true
+updater:
+  include_used_components: true
+  reporting: true
+weather:
+- platform: darksky
+  api_key: !secret darksky_api_key
+  mode: daily
+  name: Home
 zeroconf:
-
-alert: !include_dir_merge_named configs/alerts/
-automation: !include_dir_merge_list configs/automations/
-binary_sensor: !include configs/binary_sensors.yaml
-device_tracker: !include configs/device_trackers.yaml
-duckdns: !include configs/duckdns.yaml
-frontend: !include configs/frontend.yaml
-group: !include configs/groups.yaml
-hacs: !include configs/hacs.yaml
-homeassistant: !include configs/homeassistant.yaml
-http: !include configs/http.yaml
-input_text: !include configs/input_texts.yaml
-logger: !include configs/logger.yaml
-notify: !include configs/notifiers.yaml
-person: !include configs/people.yaml
-script: !include configs/scripts.yaml
-sensor: !include configs/sensors.yaml
-system_log: !include configs/system_log.yaml
-updater: !include configs/updater.yaml
-weather: !include configs/weather.yaml
-zone: !include configs/zones.yaml
-zwave: !include configs/zwave.yaml
+zwave:
+  network_key: !secret zwave_network_key
+  usb_path: /dev/ttyUSB0

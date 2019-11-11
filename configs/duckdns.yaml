@@ -1,3 +1,0 @@
----
-access_token: !secret duck_dns_token
-domain: !secret duck_dns_domain

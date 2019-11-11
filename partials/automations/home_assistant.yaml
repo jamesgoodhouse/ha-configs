@@ -13,6 +13,7 @@
         A failed login attempt has occurred from
         `{{ states.persistent_notification.http_login.attributes.message.split("from")[1] | replace(' ', '') }}`
         <@{{ states('input_text.discord_user_id') }}>
+
 - alias: System Error Occurred Notification
   trigger:
   - platform: event
@@ -27,6 +28,7 @@
         ```
         {{ trigger.event.data.message }}
         ```
+
 - alias: Home Assistant Update Available Notification
   trigger:
   - platform: state
@@ -39,6 +41,7 @@
       message: >
         Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available
         <@{{ states('input_text.discord_user_id') }}>
+
 - alias: Home Assistant Startup
   trigger:
   - platform: homeassistant
@@ -52,6 +55,7 @@
       message: >
         Home Assistant has been restarted
         <@{{ states('input_text.discord_user_id') }}>
+
 - alias: Home Assistant Shutdown
   trigger:
   - platform: homeassistant

@@ -1,4 +1,0 @@
----
-sidepanel_icon: mdi:account-group
-theme: true
-token: !secret github_token_hacs

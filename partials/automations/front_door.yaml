@@ -16,6 +16,7 @@
       message: >
         Your front door has been opened
         <@{{ states('input_text.discord_user_id') }}>
+
 - alias: Front Door Left Opened
   description: Front door have been left opened
   trigger:
@@ -33,6 +34,7 @@
       message: >
         You left your front door open
         <@{{ states('input_text.discord_user_id') }}>
+
 - alias: Front Door Sensor Body Opened
   description: Front door sensor body has been opened up
   trigger:
