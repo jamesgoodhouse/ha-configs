@@ -1,11 +1,11 @@
 ---
-- alias: Login Failure Notification
+- alias: Login Failure
   description: ''
   trigger:
-  - platform:  state
+  - platform: state
     entity_id: persistent_notification.http_login
   condition:
-  - condition:      template
+  - condition: template
     value_template: '{{ trigger.to_state.state != ''None'' }}'
   action:
   - service: notify.discord_alerts_system
@@ -61,3 +61,7 @@
   - service: notify.discord_alerts_system
     data_template:
       message: Home Assistant is shutting down <@{{ states('input_text.discord_user_id') }}>
+
+
+
+
