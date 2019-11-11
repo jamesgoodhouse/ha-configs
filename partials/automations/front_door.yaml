@@ -11,6 +11,9 @@
   - condition: state
     entity_id: person.james
     state: not_home
+  - service: notify.telegram
+    data:
+      message: Your front door has been opened
   - service: notify.discord_alerts_home
     data:
       message: >
@@ -29,6 +32,9 @@
     entity_id: binary_sensor.front_door
     state: "on"
   action:
+  - service: notify.telegram
+    data:
+      message: You left your front door open
   - service: notify.discord_alerts_home
     data:
       message: >
@@ -43,6 +49,9 @@
     from: "0"
     to: "3"
   action:
+  - service: notify.telegram
+    data:
+      message: The front door sensor's body has been opened
   - service: notify.discord_alerts_home
     data:
       message: >

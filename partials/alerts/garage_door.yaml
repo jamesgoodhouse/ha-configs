@@ -16,6 +16,7 @@ garage_door_open:
   - 10
   - 20
   notifiers:
+  - telegram
   - discord_alerts_home
 
 garage_door_sensor_battery_low:
@@ -31,4 +32,5 @@ garage_door_sensor_battery_low:
   -  4320 # 3 days
   -  1440 # 1 day
   notifiers:
+  - telegram
   - discord_alerts_system
