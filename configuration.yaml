@@ -30,9 +30,9 @@ homeassistant:
   time_zone: America/Los_Angeles
   unit_system: imperial
 http:
-  server_port: 8443
-  ssl_certificate: /config/certificate.pem
-  ssl_key: /config/privkey.pem
+  server_port: 443
+  ssl_certificate: /config/tls/certificate.pem
+  ssl_key: /config/tls/privkey.pem
 input_text:
   discord_user_id:
     name: Discord User ID
