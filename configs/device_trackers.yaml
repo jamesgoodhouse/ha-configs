@@ -1,5 +1,5 @@
 ---
-- platform:     bluetooth_tracker
+- platform: bluetooth_tracker
   request_rssi: true
   new_device_defaults:
     track_new_devices: false

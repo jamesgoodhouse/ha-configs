@@ -1,30 +1,28 @@
 ---
 cpu_usage_high:
-  friendly_name:  'CPU Usage High'
-  entity_id:      sensor.processor_use
-  device_class:   problem
+  friendly_name: CPU Usage High
+  entity_id: sensor.processor_use
+  device_class: problem
   value_template: >
     {% if states.sensor.processor_use %}
       {{ states('sensor.processor_use') | float > 40 }}
     {% else %}
       False
     {% endif %}
-
 disk_usage_high:
-  friendly_name:  'Disk Usage High'
-  entity_id:      sensor.disk_use_percent
-  device_class:   problem
+  friendly_name: Disk Usage High
+  entity_id: sensor.disk_use_percent
+  device_class: problem
   value_template: >
     {% if states.sensor.disk_use_percent %}
       {{ states('sensor.disk_use_percent') | float > 50 }}
     {% else %}
       False
     {% endif %}
-
 memory_usage_high:
-  friendly_name:  'Memory Usage High'
-  entity_id:      sensor.memory_use_percent
-  device_class:   problem
+  friendly_name: Memory Usage High
+  entity_id: sensor.memory_use_percent
+  device_class: problem
   value_template: >
     {% if states.sensor.memory_use_percent %}
       {{ states('sensor.memory_use_percent') | float > 50 }}

@@ -1,16 +1,14 @@
 ---
 - platform: discord
-  name:     Discord
-  token:    !secret discord_bot_token
-
+  name: Discord
+  token: !secret discord_bot_token
 - platform: group
-  name:     discord_alerts_home
+  name: discord_alerts_home
   services:
   - service: discord
     data:
       target:
       - !secret discord_channel_id_alerts_home
-
 - platform: group
   name: discord_alerts_system
   services:
@@ -18,17 +16,15 @@
     data:
       target:
       - !secret discord_channel_id_alerts_system
-
 - platform: group
-  name:     discord_alerts_system_debug
+  name: discord_alerts_system_debug
   services:
   - service: discord
     data:
       target:
       - !secret discord_channel_id_alerts_system_debug
-
 - platform: group
-  name:     discord_alerts_testing
+  name: discord_alerts_testing
   services:
   - service: discord
     data:

@@ -1,6 +1,6 @@
 ---
-- name:    James
-  id:      james
+- name: James
+  id: james
   user_id: !secret user_id_james
   device_trackers:
   - device_tracker.james_iphone
