@@ -1,62 +1,60 @@
 ---
-- alias: Front Door Opened
+-
+  alias:       Front Door Opened
   description: Front door has been opened
   trigger:
-  - platform:  state
-    entity_id: binary_sensor.front_door
-    from:     'off'
-    to:       'on'
+    -
+      platform:  state
+      entity_id: binary_sensor.front_door
+      from:     'off'
+      to:       'on'
   action:
-  # only fire if after 30 seconds i'm still `not_home`
-  - delay: 00:00:30
-  - condition: state
-    entity_id: person.james
-    state:     not_home
-  - service: notify.discord_alerts_home
-    data:
-      message: Your front door has been opened <@{{ states('input_text.discord_user_id') }}>
-
-- alias: Front Door Closed
-  description: ''
-  trigger:
-  - platform:  state
-    entity_id: binary_sensor.front_door
-    from:      'on'
-    to:        'off'
-  condition:
-  - condition: state
-    entity_id: person.james
-    state:     not_home
-  action:
-  - service: notify.discord_alerts_home
-    data:
-      message: Your front door is now closed <@{{ states('input_text.discord_user_id') }}>
-
-- alias: Front Door Sensor Body Opened
+    -
+      delay: 00:00:30 # only fire if after 30 seconds i'm still `not_home`
+    -
+      condition: state
+      entity_id: person.james
+      state:     not_home
+    -
+      service: notify.discord_alerts_home
+      data:
+        message: |
+          Your front door has been opened
+          <@{{ states('input_text.discord_user_id') }}>
+-
+  alias:       Front Door Sensor Body Opened
   description: Front door sensor body has been opened up
   trigger:
-  - platform:  state
-    entity_id: sensor.front_door_tamper_alarm
-    from:      '0'
-    to:        '3'
-  condition: []
+    -
+      platform:  state
+      entity_id: sensor.front_door_tamper_alarm
+      from:      '0'
+      to:        '3'
   action:
-  - service: notify.discord_alerts_home
-    data:
-      message: The front door sensor's body has been opened <@{{ states('input_text.discord_user_id') }}>
-
-- alias: Front Door Left Opened
-  description: ''
+    -
+      service: notify.discord_alerts_home
+      data:
+        message: |
+          The front door sensor's body has been opened
+          <@{{ states('input_text.discord_user_id') }}>
+-
+  alias:       Front Door Left Opened
+  description: Front door have been left opened
   trigger:
-  - platform:  state
-    entity_id: person.james
-    from:      'home'
-    to:        'not_home'
+    -
+      platform:  state
+      entity_id: person.james
+      from:      'home'
+      to:        'not_home'
   condition:
-  - condition: state
-    entity_id: binary_sensor.front_door
-    state:     'on'
+    -
+      condition: state
+      entity_id: binary_sensor.front_door
+      state:     'on'
   action:
-  - service: notify.discord_alerts_home
-    data:
-      message: You left your front door open <@{{ states('input_text.discord_user_id') }}>
+    -
+      service: notify.discord_alerts_home
+      data:
+        message: |
+          You left your front door open
+          <@{{ states('input_text.discord_user_id') }}>
