@@ -16,7 +16,8 @@ duckdns:        !include configs/duckdns.yaml
 frontend:       !include configs/frontend.yaml
 group:          !include configs/groups.yaml
 hacs:           !include configs/hacs.yaml
-homeassistant:  !include configs/home_assistant.yaml
+homeassistant:  !include configs/homeassistant.yaml
+http:           !include configs/http.yaml
 input_text:     !include configs/input_texts.yaml
 logger:         !include configs/logger.yaml
 notify:         !include configs/notifiers.yaml
