@@ -13,7 +13,7 @@
     state: not_home
   - service: notify.telegram
     data:
-      message: ⚠️ Your front door has been opened
+      message: ⚠️ The front door has been opened
   # - service: notify.discord_alerts_home
   #   data:
   #     message: >
@@ -34,7 +34,7 @@
   action:
   - service: notify.telegram
     data:
-      message: ⚠️ You left your front door open
+      message: ⚠️ You left the front door open
   # - service: notify.discord_alerts_home
   #   data:
   #     message: >
