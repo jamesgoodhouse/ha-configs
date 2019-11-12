@@ -13,12 +13,12 @@
     state: not_home
   - service: notify.telegram
     data:
-      message: Your front door has been opened
-  - service: notify.discord_alerts_home
-    data:
-      message: >
-        Your front door has been opened
-        <@{{ states('input_text.discord_user_id') }}>
+      message: ⚠️ Your front door has been opened
+  # - service: notify.discord_alerts_home
+  #   data:
+  #     message: >
+  #       Your front door has been opened
+  #       <@{{ states('input_text.discord_user_id') }}>
 
 - alias: Front Door Left Opened
   description: Front door have been left opened
@@ -34,12 +34,12 @@
   action:
   - service: notify.telegram
     data:
-      message: You left your front door open
-  - service: notify.discord_alerts_home
-    data:
-      message: >
-        You left your front door open
-        <@{{ states('input_text.discord_user_id') }}>
+      message: ⚠️ You left your front door open
+  # - service: notify.discord_alerts_home
+  #   data:
+  #     message: >
+  #       You left your front door open
+  #       <@{{ states('input_text.discord_user_id') }}>
 
 - alias: Front Door Sensor Body Opened
   description: Front door sensor body has been opened up
@@ -51,9 +51,9 @@
   action:
   - service: notify.telegram
     data:
-      message: The front door sensor's body has been opened
-  - service: notify.discord_alerts_home
-    data:
-      message: >
-        The front door sensor's body has been opened
-        <@{{ states('input_text.discord_user_id') }}>
+      message: ⚠️ The front door sensor's body has been opened
+  # - service: notify.discord_alerts_home
+  #   data:
+  #     message: >
+  #       The front door sensor's body has been opened
+  #       <@{{ states('input_text.discord_user_id') }}>
