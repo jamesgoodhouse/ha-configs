@@ -55,7 +55,7 @@ system_health: null
 system_log:
   fire_event: true
 telegram_bot:
-- platform: polling
+- platform: broadcast
   api_key: !secret telegram_bot_token
   allowed_chat_ids:
   - !secret telegram_chat_id
