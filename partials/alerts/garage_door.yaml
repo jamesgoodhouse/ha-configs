@@ -22,7 +22,7 @@ garage_door_open:
 garage_door_sensor_battery_low:
   name: Garage Door Sensor Battery Low
   message: >
-    🔋 The garage door sensor's battery is low
+    🔋 The garage door's sensor battery is low
     <@{{ states('input_text.discord_user_id') }}>
   entity_id: binary_sensor.garage_door_battery_low
   can_acknowledge: true
