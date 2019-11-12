@@ -13,7 +13,7 @@
     state: not_home
   - service: notify.telegram
     data:
-      message: ⚠️ Your garage door has been opened
+      message: ⚠️ The garage door has been opened
   # - service: notify.discord_alerts_home
   #   data:
   #     message: >
@@ -34,7 +34,7 @@
   action:
   - service: notify.telegram
     data:
-      message: ⚠️ You left your garage door open
+      message: ⚠️ You left the garage door open
   # - service: notify.discord_alerts_home
   #   data:
   #     message: >
