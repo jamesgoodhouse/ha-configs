@@ -2,10 +2,10 @@
 garage_door_open:
   name: Garage Door Open
   message: >
-    ⚠️ Your garage door is open
+    ⚠️ The garage door is open
     <@{{ states('input_text.discord_user_id') }}>
   done_message: >
-    ✅ Your garage door is now closed
+    ✅ The garage door is now closed
     <@{{ states('input_text.discord_user_id') }}>
   entity_id: binary_sensor.garage_door
   can_acknowledge: true
