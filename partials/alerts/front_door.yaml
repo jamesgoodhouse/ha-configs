@@ -2,10 +2,10 @@
 front_door_open:
   name: Front Door Open
   message: >
-    ⚠️ Your front door is open
+    ⚠️ The front door is open
     <@{{ states('input_text.discord_user_id') }}>
   done_message: >
-    ✅ Your front door is now closed
+    ✅ The front door is now closed
     <@{{ states('input_text.discord_user_id') }}>
   entity_id: binary_sensor.front_door
   can_acknowledge: true
