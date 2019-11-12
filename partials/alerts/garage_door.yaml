@@ -2,10 +2,10 @@
 garage_door_open:
   name: Garage Door Open
   message: >
-    Your garage door is open
+    ⚠️ Your garage door is open
     <@{{ states('input_text.discord_user_id') }}>
   done_message: >
-    Your garage door is now closed
+    ✅ Your garage door is now closed
     <@{{ states('input_text.discord_user_id') }}>
   entity_id: binary_sensor.garage_door
   can_acknowledge: true
@@ -17,12 +17,12 @@ garage_door_open:
   - 20
   notifiers:
   - telegram
-  - discord_alerts_home
+  # - discord_alerts_home
 
 garage_door_sensor_battery_low:
   name: Garage Door Sensor Battery Low
   message: >
-    The garage door sensor's battery is low
+    🔋 The garage door sensor's battery is low
     <@{{ states('input_text.discord_user_id') }}>
   entity_id: binary_sensor.garage_door_battery_low
   can_acknowledge: true
@@ -33,4 +33,4 @@ garage_door_sensor_battery_low:
   -  1440 # 1 day
   notifiers:
   - telegram
-  - discord_alerts_system
+  # - discord_alerts_system
