@@ -1,12 +1,8 @@
 ---
 front_door_open:
   name: Front Door Open
-  message: >
-    ⚠️ The front door is open
-    <@{{ states('input_text.discord_user_id') }}>
-  done_message: >
-    ✅ The front door is now closed
-    <@{{ states('input_text.discord_user_id') }}>
+  message: ⚠️ The front door is open
+  done_message: ✅ The front door is now closed
   entity_id: binary_sensor.front_door
   can_acknowledge: true
   state: "on"
@@ -17,13 +13,10 @@ front_door_open:
   - 10
   notifiers:
   - telegram
-  # - discord_alerts_home
 
 front_door_sensor_battery_low:
   name: Front Door Sensor Battery Low
-  message: >
-    🔋 The front door's sensor battery is low
-    <@{{ states('input_text.discord_user_id') }}>
+  message: 🔋 The front door's sensor battery is low
   entity_id: binary_sensor.front_door_battery_low
   can_acknowledge: true
   state: "on"
@@ -33,4 +26,3 @@ front_door_sensor_battery_low:
   -  1440 # 1 day
   notifiers:
   - telegram
-  # - discord_alerts_system

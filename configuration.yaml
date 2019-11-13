@@ -33,11 +33,6 @@ http:
   server_port: 443
   ssl_certificate: /config/tls/certificate.pem
   ssl_key: /config/tls/privkey.pem
-input_text:
-  discord_user_id:
-    name: Discord User ID
-    initial: !secret discord_user_id
-    icon: mdi:discord
 logbook: null
 logger:
   default: info
@@ -52,8 +47,6 @@ person:
 sensor: !include ./partials/sensors.yaml
 sun: null
 system_health: null
-system_log:
-  fire_event: true
 telegram_bot:
 - platform: broadcast
   api_key: !secret telegram_bot_token
