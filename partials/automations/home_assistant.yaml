@@ -12,27 +12,6 @@
       message: >
         🔐 A failed login attempt has occurred from
         `{{ states.persistent_notification.http_login.attributes.message.split("from")[1] | replace(' ', '') }}`
-  # - service: notify.discord_alerts_system
-  #   data_template:
-  #     message: >
-  #       A failed login attempt has occurred from
-  #       `{{ states.persistent_notification.http_login.attributes.message.split("from")[1] | replace(' ', '') }}`
-  #       <@{{ states('input_text.discord_user_id') }}>
-
-- alias: System Error Occurred Notification
-  trigger:
-  - platform: event
-    event_type: system_log_event
-    event_data:
-      level: ERROR
-  action:
-  - service: notify.discord_alerts_system_debug
-    data_template:
-      message: |
-        The following system error has occurred:
-        ```
-        {{ trigger.event.data.message }}
-        ```
 
 - alias: Home Assistant Update Available Notification
   trigger:
@@ -44,11 +23,6 @@
   - service: notify.telegram
     data:
       message: 🆕 Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available
-  # - service: notify.discord_alerts_system
-  #   data_template:
-  #     message: >
-  #       Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available
-  #       <@{{ states('input_text.discord_user_id') }}>
 
 - alias: Home Assistant Startup
   trigger:
@@ -61,11 +35,6 @@
   - service: notify.telegram
     data:
       message: 🔁 Home Assistant has been restarted
-  # - service: notify.discord_alerts_system
-  #   data_template:
-  #     message: >
-  #       Home Assistant has been restarted
-  #       <@{{ states('input_text.discord_user_id') }}>
 
 - alias: Home Assistant Shutdown
   trigger:
@@ -75,8 +44,3 @@
   - service: notify.telegram
     data:
       message: 🛑 Home Assistant is shutting down
-  # - service: notify.discord_alerts_system
-  #   data_template:
-  #     message: >
-  #       Home Assistant is shutting down
-  #       <@{{ states('input_text.discord_user_id') }}>

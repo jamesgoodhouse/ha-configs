@@ -1,9 +1,7 @@
 ---
 cpu_usage_high:
   name: CPU Usage High
-  message: >
-    📈 The system's CPU usage is high
-    <@{{ states('input_text.discord_user_id') }}>
+  message: 📈 The system's CPU usage is high
   entity_id: binary_sensor.cpu_usage_high
   can_acknowledge: true
   state: "on"
@@ -13,13 +11,10 @@ cpu_usage_high:
   - 5
   notifiers:
   - telegram
-  # - discord_alerts_system
 
 disk_usage_high:
   name: Disk Usage High
-  message: >
-    📈 The system's disk usage is high
-    <@{{ states('input_text.discord_user_id') }}>
+  message: 📈 The system's disk usage is high
   entity_id: binary_sensor.disk_usage_high
   can_acknowledge: true
   state: "on"
@@ -27,13 +22,10 @@ disk_usage_high:
   - 60
   notifiers:
   - telegram
-  # - discord_alerts_system
 
 memory_usage_high:
   name: Memory Usage High
-  message: >
-    📈 The system's memory usage is high
-    <@{{ states('input_text.discord_user_id') }}>
+  message: 📈 The system's memory usage is high
   entity_id: binary_sensor.memory_usage_high
   can_acknowledge: true
   state: "on"
@@ -43,4 +35,3 @@ memory_usage_high:
   - 5
   notifiers:
   - telegram
-  # - discord_alerts_system
