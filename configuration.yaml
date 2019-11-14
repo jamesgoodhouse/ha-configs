@@ -10,6 +10,8 @@ device_tracker:
   request_rssi: true
   new_device_defaults:
     track_new_devices: false
+- platform: nmap_tracker
+  hosts: ***REMOVED***
 duckdns:
   access_token: !secret duck_dns_token
   domain: !secret duck_dns_domain
@@ -43,7 +45,8 @@ person:
   id: james
   user_id: !secret user_id_james
   device_trackers:
-  - device_tracker.james_***REMOVED***
+  - device_tracker.james_***REMOVED***_bluetooth
+  - device_tracker.james_***REMOVED***_wifi
 sensor: !include ./partials/sensors.yaml
 sun: null
 system_health: null
