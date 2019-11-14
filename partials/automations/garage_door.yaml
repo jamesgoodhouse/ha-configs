@@ -29,7 +29,7 @@
   action:
   - service: notify.telegram
     data:
-      message: ⚠️ You left the garage door open
+      message: ⚠️ The garage door has been left open
 
 - alias: Garage Door Sensor Body Opened
   description: Garage door sensor body has been opened up
