@@ -29,7 +29,7 @@
   action:
   - service: notify.telegram
     data:
-      message: ⚠️ You left the front door open
+      message: ⚠️ The front door has been left open
 
 - alias: Front Door Sensor Body Opened
   description: Front door sensor body has been opened up
