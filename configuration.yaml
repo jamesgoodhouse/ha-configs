@@ -5,6 +5,7 @@ binary_sensor:
 - platform: template
   sensors: !include_dir_merge_named ./partials/binary_sensors/
 config: null
+daikin: null
 device_tracker:
 - platform: bluetooth_tracker
   request_rssi: true
