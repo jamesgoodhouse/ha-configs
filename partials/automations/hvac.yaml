@@ -1,6 +1,6 @@
 ---
 - alias: Turn Off Master Bedroom HVAC When Leaving
-  description: Turn off HVAC when leaving
+  description: Turn off master bedroom HVAC when leaving
   trigger:
   - platform: state
     entity_id: person.james
@@ -13,4 +13,20 @@
   - service: climate.set_hvac_mode
     data_template:
       entity_id: climate.master_bedroom
+      hvac_mode: "off"
+
+- alias: Turn Off Main HVAC When Leaving
+  description: Turn off main HVAC when leaving
+  trigger:
+  - platform: state
+    entity_id: person.james
+    from: home
+    to: not_home
+  condition:
+  - condition: template
+    value_template: "{{ not is_state('climate.main', 'off') }}"
+  action:
+  - service: climate.set_hvac_mode
+    data_template:
+      entity_id: climate.main
       hvac_mode: "off"
