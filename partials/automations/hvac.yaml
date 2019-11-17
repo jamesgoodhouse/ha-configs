@@ -24,9 +24,9 @@
     to: not_home
   condition:
   - condition: template
-    value_template: "{{ not is_state('climate.main', 'off') }}"
+    value_template: "{{ not is_state('climate.main_room', 'off') }}"
   action:
   - service: climate.set_hvac_mode
     data_template:
-      entity_id: climate.main
+      entity_id: climate.main_room
       hvac_mode: "off"
