@@ -11,6 +11,7 @@ daikin:
   - ***REMOVED***
 device_tracker:
 - platform: bluetooth_tracker
+  device_id: 1
   request_rssi: true
   new_device_defaults:
     track_new_devices: false
