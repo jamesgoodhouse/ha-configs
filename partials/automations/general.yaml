@@ -1,0 +1,11 @@
+---
+- alias: Welcome Home
+  trigger:
+  - platform: state
+    entity_id: person.james
+    from: not_home
+    to: home
+  action:
+  - service: notify.telegram
+    data:
+      message: 👋 Welcome home!
