@@ -11,3 +11,10 @@
     arg:  eth0
   - type: network_out
     arg:  eth0
+
+- platform: template
+  sensors:
+    james_***REMOVED***_bluetooth_rssi:
+      friendly_name: James' ***REMOVED*** Bluetooth RSSI
+      value_template: "{{ state_attr('device_tracker.james_***REMOVED***_bluetooth', 'rssi[0]') }}"
+      entity_id: device_tracker.james_***REMOVED***_bluetooth
