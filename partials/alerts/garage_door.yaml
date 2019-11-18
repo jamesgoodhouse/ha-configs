@@ -8,9 +8,9 @@ garage_door_open:
   state: "on"
   skip_first: true
   repeat:
-  - 5
   - 10
-  - 20
+  - 30
+  - 60
   notifiers:
   - telegram
 
