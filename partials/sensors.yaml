@@ -18,3 +18,4 @@
       friendly_name: James' ***REMOVED*** Bluetooth RSSI
       value_template: "{{ state_attr('device_tracker.james_***REMOVED***_bluetooth', 'rssi')[0] | float }}"
       entity_id: device_tracker.james_***REMOVED***_bluetooth
+      unit_of_measurement: dBm
