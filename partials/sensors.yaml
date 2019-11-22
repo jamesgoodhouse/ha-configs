@@ -14,8 +14,8 @@
 
 - platform: template
   sensors:
-    james_***REMOVED***_bluetooth_rssi:
-      friendly_name: James' ***REMOVED*** Bluetooth RSSI
-      value_template: "{{ state_attr('device_tracker.james_***REMOVED***_bluetooth', 'rssi')[0] | float }}"
-      entity_id: device_tracker.james_***REMOVED***_bluetooth
+    james_mobile_bluetooth_rssi:
+      friendly_name: James' Mobile Bluetooth RSSI
+      value_template: "{{ state_attr('device_tracker.james_mobile_bluetooth', 'rssi')[0] | float }}"
+      entity_id: device_tracker.james_mobile_bluetooth
       unit_of_measurement: dBm

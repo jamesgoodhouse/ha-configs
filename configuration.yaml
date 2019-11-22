@@ -17,9 +17,9 @@ device_tracker:
     track_new_devices: false
 - platform: ping
   hosts:
-    james_***REMOVED***_wifi_1: !secret ip_addr_james_***REMOVED***_1
-    james_***REMOVED***_wifi_2: !secret ip_addr_james_***REMOVED***_2
-    james_***REMOVED***_wifi_3: !secret ip_addr_james_***REMOVED***_3
+    james_mobile_wifi_1: !secret ip_addr_james_mobile_1
+    james_mobile_wifi_2: !secret ip_addr_james_mobile_2
+    james_mobile_wifi_3: !secret ip_addr_james_mobile_3
 duckdns:
   access_token: !secret duck_dns_token
   domain: !secret duck_dns_domain
@@ -53,10 +53,10 @@ person:
   id: james
   user_id: !secret user_id_james
   device_trackers:
-  - device_tracker.james_***REMOVED***_bluetooth
-  - device_tracker.james_***REMOVED***_wifi_1
-  - device_tracker.james_***REMOVED***_wifi_2
-  - device_tracker.james_***REMOVED***_wifi_3
+  - device_tracker.james_mobile_bluetooth
+  - device_tracker.james_mobile_wifi_1
+  - device_tracker.james_mobile_wifi_2
+  - device_tracker.james_mobile_wifi_3
 sensor: !include ./partials/sensors.yaml
 sun: null
 system_health: null
