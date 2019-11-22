@@ -52,7 +52,7 @@ person:
   user_id: !secret user_id_james
   device_trackers:
   - device_tracker.james_***REMOVED***_bluetooth
-  - device_tracker.james_***REMOVED***_wifi
+  - device_tracker.james_***REMOVED***_wifi_1
 sensor: !include ./partials/sensors.yaml
 sun: null
 system_health: null
