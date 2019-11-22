@@ -20,9 +20,6 @@ device_tracker:
     james_mobile_wifi_1: !secret ip_addr_james_mobile_1
     james_mobile_wifi_2: !secret ip_addr_james_mobile_2
     james_mobile_wifi_3: !secret ip_addr_james_mobile_3
-duckdns:
-  access_token: !secret duck_dns_token
-  domain: !secret duck_dns_domain
 frontend:
   themes: !include_dir_merge_named ./themes/
 hacs:
