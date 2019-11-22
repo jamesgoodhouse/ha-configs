@@ -7,16 +7,17 @@ binary_sensor:
 config: null
 daikin:
   hosts:
-  - ***REMOVED***
-  - ***REMOVED***
+  - !secret ip_addr_daikin_main_room
+  - !secret ip_addr_daikin_master_bedroom
 device_tracker:
 - platform: bluetooth_tracker
   device_id: 1
   request_rssi: true
   new_device_defaults:
     track_new_devices: false
-- platform: nmap_tracker
-  hosts: ***REMOVED***
+- platform: ping
+  hosts:
+    james_***REMOVED***_wifi_1: !secret ip_addr_james_***REMOVED***_1
 duckdns:
   access_token: !secret duck_dns_token
   domain: !secret duck_dns_domain
