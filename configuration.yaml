@@ -18,6 +18,8 @@ device_tracker:
 - platform: ping
   hosts:
     james_***REMOVED***_wifi_1: !secret ip_addr_james_***REMOVED***_1
+    james_***REMOVED***_wifi_2: !secret ip_addr_james_***REMOVED***_2
+    james_***REMOVED***_wifi_3: !secret ip_addr_james_***REMOVED***_3
 duckdns:
   access_token: !secret duck_dns_token
   domain: !secret duck_dns_domain
@@ -53,6 +55,8 @@ person:
   device_trackers:
   - device_tracker.james_***REMOVED***_bluetooth
   - device_tracker.james_***REMOVED***_wifi_1
+  - device_tracker.james_***REMOVED***_wifi_2
+  - device_tracker.james_***REMOVED***_wifi_3
 sensor: !include ./partials/sensors.yaml
 sun: null
 system_health: null
