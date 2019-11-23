@@ -46,7 +46,10 @@ logbook: null
 logger:
   default: info
 mobile_app: null
-notify: !include_dir_merge_list ./partials/notifiers/
+notify:
+- platform: telegram
+  name: telegram
+  chat_id: !secret telegram_chat_id
 person:
 - name: James
   id: james
