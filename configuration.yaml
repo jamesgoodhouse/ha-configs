@@ -17,6 +17,7 @@ device_tracker:
     track_new_devices: false
 - platform: ping
   scan_interval: 30
+  count: 10
   hosts:
     james_mobile_wifi_1: !secret ip_addr_james_mobile_1
     james_mobile_wifi_2: !secret ip_addr_james_mobile_2
