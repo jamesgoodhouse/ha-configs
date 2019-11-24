@@ -9,3 +9,14 @@
   - service: notify.telegram
     data:
       message: 👋 Welcome home!
+
+- alias: Peace Out
+  trigger:
+  - platform: state
+    entity_id: person.james
+    from: home
+    to: not_home
+  action:
+  - service: notify.telegram
+    data:
+      message: ✌️ Peace out!
