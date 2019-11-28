@@ -45,20 +45,30 @@ http:
 logbook: null
 logger:
   default: info
+map: null
 mobile_app: null
+mqtt:
+  broker: !secret mqtt_broker_address
+  port: !secret mqtt_broker_port
+  username: !secret mqtt_broker_username
+  password: !secret mqtt_broker_password
 notify:
 - platform: telegram
   name: telegram
   chat_id: !secret telegram_chat_id
+owntracks:
+  max_gps_accuracy: 200
+  secret: !secret owntracks_secret
 person:
 - name: James
   id: james
   user_id: !secret user_id_james
   device_trackers:
-  - device_tracker.james_mobile_bluetooth
-  - device_tracker.james_mobile_wifi_1
-  - device_tracker.james_mobile_wifi_2
-  - device_tracker.james_mobile_wifi_3
+  - device_tracker.bluetooth_james_mobile
+  - device_tracker.owntracks_james_mobile
+  - device_tracker.wifi_james_mobile_1
+  - device_tracker.wifi_james_mobile_2
+  - device_tracker.wifi_james_mobile_3
 sensor: !include ./partials/sensors.yaml
 sun: null
 system_health: null
@@ -76,6 +86,12 @@ weather:
   mode: daily
   name: Home
 zeroconf: null
+zone:
+- name: Home
+  latitude: !secret zone_home_latitude
+  longitude: !secret zone_home_longitude
+  radius: 50
+  icon: mdi:home
 zwave:
   network_key: !secret zwave_network_key
   usb_path: /dev/ttyUSB0
