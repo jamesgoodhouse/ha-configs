@@ -45,6 +45,7 @@ http:
 logbook: null
 logger:
   default: info
+map: null
 mqtt:
   broker: !secret mqtt_broker_address
   port: !secret mqtt_broker_port
