@@ -92,6 +92,11 @@ zone:
   longitude: !secret zone_home_longitude
   radius: 25
   icon: mdi:home
+- name: Work
+  latitude: !secret zone_work_latitude
+  longitude: !secret zone_work_longitude
+  radius: 50
+  icon: mdi:iframe
 zwave:
   network_key: !secret zwave_network_key
   usb_path: /dev/ttyUSB0
