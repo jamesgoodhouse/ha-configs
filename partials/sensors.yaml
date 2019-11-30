@@ -16,6 +16,6 @@
   sensors:
     james_mobile_bluetooth_rssi:
       friendly_name: James' Mobile Bluetooth RSSI
-      value_template: "{{ state_attr('device_tracker.james_mobile_bluetooth', 'rssi')[0] | float }}"
-      entity_id: device_tracker.james_mobile_bluetooth
+      value_template: "{{ state_attr('device_tracker.bluetooth_james_mobile', 'rssi')[0] | float }}"
+      entity_id: device_tracker.bluetooth_james_mobile
       unit_of_measurement: dBm
