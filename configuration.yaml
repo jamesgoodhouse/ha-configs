@@ -96,7 +96,7 @@ zone:
   latitude: !secret zone_work_latitude
   longitude: !secret zone_work_longitude
   radius: 50
-  icon: mdi:iframe
+  icon: mdi:floppy
 zwave:
   network_key: !secret zwave_network_key
   usb_path: /dev/ttyUSB0
