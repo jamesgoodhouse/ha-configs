@@ -30,7 +30,7 @@ hacs:
   token: !secret github_token_hacs
 history: null
 homeassistant:
-  customize: !include ./partials/customize.yaml
+  customize: !include ./partials/customizations.yaml
   elevation: 43
   latitude: !secret zone_home_latitude
   longitude: !secret zone_home_longitude
