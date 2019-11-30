@@ -90,7 +90,7 @@ zone:
 - name: Home
   latitude: !secret zone_home_latitude
   longitude: !secret zone_home_longitude
-  radius: 50
+  radius: 25
   icon: mdi:home
 zwave:
   network_key: !secret zwave_network_key
