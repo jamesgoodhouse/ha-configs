@@ -10,6 +10,10 @@
   - condition: template
     value_template: "{{ not is_state('climate.master_bedroom', 'off') }}"
   action:
+  - delay: "00:05:00"
+  - condition: state
+    entity_id: person.james
+    state: not_home
   - service: climate.set_hvac_mode
     data_template:
       entity_id: climate.master_bedroom
@@ -26,6 +30,10 @@
   - condition: template
     value_template: "{{ not is_state('climate.main_room', 'off') }}"
   action:
+  - delay: "00:05:00"
+  - condition: state
+    entity_id: person.james
+    state: not_home
   - service: climate.set_hvac_mode
     data_template:
       entity_id: climate.main_room
