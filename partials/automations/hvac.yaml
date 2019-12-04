@@ -22,7 +22,7 @@
 - alias: Turn Off Master Bedroom HVAC After Bedtime
   description: Turn off master bedroom HVAC after bedtime
   trigger:
-  - platform: state
+  - platform: time
     at: "01:30:00"
   condition:
   - condition: template
