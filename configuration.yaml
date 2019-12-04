@@ -45,27 +45,27 @@ http:
 logbook: null
 logger:
   default: info
-map: null
+# map: null
 mobile_app: null
-mqtt:
-  broker: !secret mqtt_broker_address
-  port: !secret mqtt_broker_port
-  username: !secret mqtt_broker_username
-  password: !secret mqtt_broker_password
+# mqtt:
+#   broker: !secret mqtt_broker_address
+#   port: !secret mqtt_broker_port
+#   username: !secret mqtt_broker_username
+#   password: !secret mqtt_broker_password
 notify:
 - platform: telegram
   name: telegram
   chat_id: !secret telegram_chat_id
-owntracks:
-  max_gps_accuracy: 200
-  secret: !secret owntracks_secret
+# owntracks:
+#   max_gps_accuracy: 200
+#   secret: !secret owntracks_secret
 person:
 - name: James
   id: james
   user_id: !secret user_id_james
   device_trackers:
   - device_tracker.bluetooth_james_mobile
-  - device_tracker.owntracks_james_mobile
+  # - device_tracker.owntracks_james_mobile
   - device_tracker.wifi_james_mobile_1
   - device_tracker.wifi_james_mobile_2
   - device_tracker.wifi_james_mobile_3
@@ -86,17 +86,17 @@ weather:
   mode: daily
   name: Home
 zeroconf: null
-zone:
-- name: Home
-  latitude: !secret zone_home_latitude
-  longitude: !secret zone_home_longitude
-  radius: 25
-  icon: mdi:home
-- name: Work
-  latitude: !secret zone_work_latitude
-  longitude: !secret zone_work_longitude
-  radius: 50
-  icon: mdi:floppy
+# zone:
+# - name: Home
+#   latitude: !secret zone_home_latitude
+#   longitude: !secret zone_home_longitude
+#   radius: 25
+#   icon: mdi:home
+# - name: Work
+#   latitude: !secret zone_work_latitude
+#   longitude: !secret zone_work_longitude
+#   radius: 75
+#   icon: mdi:floppy
 zwave:
   network_key: !secret zwave_network_key
   usb_path: /dev/ttyUSB0
