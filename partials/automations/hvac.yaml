@@ -52,3 +52,17 @@
     data_template:
       entity_id: climate.main_room
       hvac_mode: "off"
+
+- alias: Turn Off Main HVAC At Night
+  description: Turn off main HVAC at night bedtime
+  trigger:
+  - platform: time
+    at: "22:30:00"
+  condition:
+  - condition: template
+    value_template: "{{ not is_state('climate.main_room', 'off') }}"
+  action:
+  - service: climate.set_hvac_mode
+    data_template:
+      entity_id: climate.main_room
+      hvac_mode: "off"
