@@ -43,11 +43,6 @@ logger:
   default: info
 # map: null
 mobile_app: null
-# mqtt:
-#   broker: !secret mqtt_broker_address
-#   port: !secret mqtt_broker_port
-#   username: !secret mqtt_broker_username
-#   password: !secret mqtt_broker_password
 notify:
 - platform: telegram
   name: telegram
