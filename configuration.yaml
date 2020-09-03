@@ -52,16 +52,12 @@ notify:
 - platform: telegram
   name: telegram
   chat_id: !secret telegram_chat_id
-# owntracks:
-#   max_gps_accuracy: 200
-#   secret: !secret owntracks_secret
 person:
 - name: James
   id: james
   user_id: !secret user_id_james
   device_trackers:
   - device_tracker.bluetooth_james_mobile
-  # - device_tracker.owntracks_james_mobile
   - device_tracker.wifi_james_mobile_1
   - device_tracker.wifi_james_mobile_2
   - device_tracker.wifi_james_mobile_3
