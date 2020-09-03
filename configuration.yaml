@@ -5,10 +5,6 @@ binary_sensor:
 - platform: template
   sensors: !include_dir_merge_named ./partials/binary_sensors/
 config: null
-daikin:
-  hosts:
-  - !secret ip_addr_daikin_main_room
-  - !secret ip_addr_daikin_master_bedroom
 device_tracker:
 - platform: bluetooth_tracker
   device_id: 1
