@@ -3,6 +3,3 @@ binary_sensor.front_door:
   device_class: door
 binary_sensor.garage_door:
   device_class: garage_door
-# device_tracker.owntracks_james_mobile:
-#   friendly_name: James' Mobile (GPS)
-#   icon: 'mdi:cellphone-basic'
